@@ -45,9 +45,7 @@ gap es el mayor salto entre azimuts consecutivos ordenados. Todo se computa en e
 
 ## Créditos
 
-- Coordinación científica: **Dr. Geofísico Michael Schmitz**
 - Análisis y diseño: **Lcdo. Físico Rommel Contreras** (AGHES)
-- Equipos: **GFZ** — Helmholtz-Zentrum Potsdam (Laura Hillmann, Dr. Frederik Tilmann, Dr. Benjamin Heit)
 
 ---
 Proyecto relacionado (mapa operativo de la red): https://rommeljose.github.io/Red_Emergencia_Vzla/
