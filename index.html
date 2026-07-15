@@ -232,7 +232,7 @@
       <span><i class="sw-prog"></i>por instalar (6)</span>
       <span><i class="sw-off"></i>apagada</span>
       <span><i class="sw-gr"></i>GT01</span>
-      <span><i class="sw-evhi"></i>réplica en filtro</span>
+      <span><i class="sw-evhi"></i>réplica en filtro · ⌀ ∝ magnitud</span>
       <span><i class="sw-ev"></i>otras réplicas</span>
       <span><i class="sw-gap"></i>gap azimutal</span>
     </div>
@@ -446,12 +446,15 @@ function draw(){
   ctx.fillStyle=C.panel; ctx.globalAlpha=.85; ctx.fillRect(lx-tw/2-6,ly-11,tw+12,22); ctx.globalAlpha=1;
   ctx.fillStyle=C.gap; ctx.fillText(txt,lx,ly);
 
-  // réplicas: fuera de filtro faint, en filtro marcadas
+  // réplicas: radio ∝ magnitud (convención sísmica). Fuera de filtro: tenues; en filtro: marcadas.
+  const evR=m=>0.9+Math.pow(Math.max(0,(m||2)-2),1.35)*1.15;   // M2≈0.9px · M3≈2 · M4≈3.8 · M5≈5.7
   for(const e of EVS){ if(inF(e))continue;
-    ctx.beginPath(); ctx.arc(px(e.lon),py(e.lat),1.6,0,6.2832); ctx.fillStyle=C.ev; ctx.globalAlpha=.28; ctx.fill();}
+    ctx.beginPath(); ctx.arc(px(e.lon),py(e.lat),evR(e.m)*0.72,0,6.2832); ctx.fillStyle=C.ev; ctx.globalAlpha=.22; ctx.fill();}
   ctx.globalAlpha=1;
   for(const e of EVS){ if(!inF(e))continue;
-    ctx.beginPath(); ctx.arc(px(e.lon),py(e.lat),3.1,0,6.2832); ctx.fillStyle=C.evhi; ctx.globalAlpha=.62; ctx.fill();}
+    ctx.beginPath(); ctx.arc(px(e.lon),py(e.lat),evR(e.m),0,6.2832);
+    ctx.fillStyle=C.evhi; ctx.globalAlpha=.5; ctx.fill();
+    ctx.globalAlpha=.85; ctx.lineWidth=.7; ctx.strokeStyle=C.evhi; ctx.stroke();}
   ctx.globalAlpha=1;
 
   // rayos evento -> estaciones activas
@@ -546,10 +549,15 @@ document.getElementById('b-14').onclick=()=>{S.red=14;syncSeg();draw();setDirty(
 document.getElementById('b-20').onclick=()=>{S.red=20;syncSeg();draw();setDirty(true);};
 document.getElementById('b-corr').onclick=()=>{S.scope='corr';syncSeg();rebuildEvents();draw();setDirty(true);};
 document.getElementById('b-all').onclick=()=>{S.scope='all';syncSeg();rebuildEvents();draw();setDirty(true);};
+// pinta en la barra el rango INCLUIDO (magnitudes ≥ umbral, a la derecha del pulsador)
+function paintMagTrack(){
+  const el=document.getElementById('mag'), pct=(S.minMag-2)/(5-2)*100;
+  el.style.background=`linear-gradient(to right, var(--line) 0 ${pct}%, var(--accent) ${pct}% 100%)`;
+}
 document.getElementById('mag').oninput=e=>{
   S.minMag=parseFloat(e.target.value);
   document.getElementById('magv').textContent=S.minMag.toFixed(1).replace('.',',');
-  rebuildEvents(); draw(); setDirty(true);
+  paintMagTrack(); rebuildEvents(); draw(); setDirty(true);
 };
 document.getElementById('evsel').onchange=e=>{const i=parseInt(e.target.value);if(!isNaN(i)){S.sel=EVS[i];draw();}};
 document.getElementById('worst').onclick=()=>{
@@ -588,7 +596,7 @@ window.addEventListener('resize',()=>{fit();draw();});
 matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{draw();});
 new MutationObserver(()=>draw()).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 
-fit(); syncSeg(); rebuildEvents(); draw(); renderAgg();
+fit(); syncSeg(); paintMagTrack(); rebuildEvents(); draw(); renderAgg();
 </script>
 
 </body>
