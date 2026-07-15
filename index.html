@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Consola interactiva del gap azimutal de la Red Sísmica de Emergencia para las réplicas del Terremoto de La Guaira (M7,2+M7,5, 24-jun-2026). Silueta de costa e islas, GT01 Gran Roque vs Paracotos, encendido de estaciones y filtro de magnitud.">
+<meta name="description" content="Consola interactiva del gap azimutal de la Red Sismica de Emergencia - Terremoto de La Guaira 2026.">
 <meta property="og:title" content="Gap azimutal — Red de Emergencia · Terremoto de La Guaira">
 <meta property="og:type" content="website">
 <title>Gap azimutal — Red de Emergencia · Terremoto de La Guaira</title>
@@ -155,6 +155,11 @@
   tr.hl td{background:var(--gap-fill);} .delta{color:var(--gap);font-weight:600;}
   .note{border-left:2px solid var(--accent);padding:2px 0 2px 18px;color:var(--ink-2);}
   .note-warn{border-left-color:var(--gap);}
+  .cite{margin:4px 0;padding:16px 20px;border-left:3px solid var(--accent);background:var(--panel-2);
+        border-radius:0 3px 3px 0;}
+  .cite p{font-size:17px;font-style:italic;color:var(--ink);line-height:1.55;text-wrap:pretty;}
+  .cite .who{display:block;margin-top:11px;font-family:var(--mono);font-size:11.5px;font-style:normal;
+             color:var(--muted);letter-spacing:.02em;}
   .foot{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.7;}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 </style>
@@ -286,6 +291,17 @@
     <p>Gran Roque —a 11,95°N, <strong>151 km al norte de la siguiente estación</strong>— era el único
       punto de tierra firme del otro lado. No mejoraba la cobertura marginalmente: <em>partía en dos el
       hueco del norte</em>.</p>
+    <figure class="cite">
+      <p>«Un argumento adicional para tener una estación al norte es que, si casi todas las estaciones
+        están ubicadas al sur de la falla, la localización de los eventos podría tener un <em>bias</em>
+        hacia el sur —es decir, un error de localización tierra adentro. Una estación al norte puede
+        permitir chequear este <em>bias</em>.»</p>
+      <span class="who">— Dr. Antoine Mocquet · Université de Nantes</span>
+    </figure>
+    <p>Es el matiz que el gap por sí solo no captura: no se trata solo de <em>cuánta</em> incertidumbre,
+      sino de su <strong>dirección</strong>. Con toda la red de un lado, el error no es aleatorio —empuja
+      sistemáticamente las localizaciones tierra adentro—, y una estación al norte es la que permite
+      detectar y corregir ese sesgo.</p>
     <div class="note note-warn">
       <p>Paracotos, a 10,26°N, densifica un flanco que ya estaba cubierto. Aporta azimut desde el sur
         —algo vale para el extremo suroriental del corredor— pero no sustituye a Gran Roque, porque el
