@@ -107,6 +107,7 @@
        font-family:var(--mono);font-size:11px;color:var(--muted);}
   .leg i{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:baseline;font-style:normal;}
   .sw-sta{background:var(--sta);} .sw-off{border:1px solid var(--sta-off);}
+  .sw-prog{border:1px dashed var(--sta);background:transparent;}
   .sw-gr{background:var(--gr);} .sw-ev{background:var(--ev);border-radius:50%;}
   .sw-evhi{background:var(--ev-hi);border-radius:50%;} .sw-gap{background:var(--gap-fill);border:1px solid var(--gap);}
 
@@ -183,7 +184,7 @@
         <div class="seg"><button id="b-gr">Gran Roque</button><button id="b-pa" aria-pressed="true">Paracotos</button></div>
       </div>
       <div class="grp"><label>Estaciones</label>
-        <div class="seg"><button id="b-14" aria-pressed="true">14 instaladas</button><button id="b-20">las 20</button></div>
+        <div class="seg"><button id="b-14">14 instaladas</button><button id="b-20" aria-pressed="true">las 20 (red completa)</button></div>
       </div>
       <div class="grp"><label>Ámbito</label>
         <div class="seg"><button id="b-corr" aria-pressed="true">Eje Morón–Caraballeda</button><button id="b-all">Todo el catálogo</button></div>
@@ -214,7 +215,8 @@
     </div>
 
     <div class="leg">
-      <span><i class="sw-sta"></i>estación activa</span>
+      <span><i class="sw-sta"></i>instalada (14)</span>
+      <span><i class="sw-prog"></i>por instalar (6)</span>
       <span><i class="sw-off"></i>apagada</span>
       <span><i class="sw-gr"></i>GT01</span>
       <span><i class="sw-evhi"></i>réplica en filtro</span>
@@ -244,7 +246,9 @@
   <p class="cap col" style="max-width:80ch">La cuña roja es el gap: el sector del horizonte donde, visto
     desde ese sismo, <b>no hay ninguna estación activa</b>. El panel derecho compara las dos posiciones
     de GT01 sobre <b>todas las réplicas del filtro actual</b>; se recalcula al pulsar <b>Re-analizar</b>.
-    Apaga estaciones para simular una caída de campo y mide el efecto.</p>
+    El mapa abre con la <b>red completa (20)</b>: las 14 instaladas van rellenas y las <b>6 aún por
+    instalar</b> (GT08, GT11, GT17–GT20) con <b>borde punteado</b> y su rótulo. Cambia a «14 instaladas»
+    para ver solo lo que hoy está en el terreno, o apaga estaciones para simular una caída de campo.</p>
 
   <section class="col">
     <h2>El resultado sobre el catálogo completo</h2>
@@ -311,7 +315,7 @@ const RL={N:'Norte',NNE:'Nornoreste',NE:'Noreste',ENE:'Estenoreste',E:'Este',ESE
 const rumbo=a=>RUMBOS[Math.floor(((a+11.25)%360)/22.5)];
 const fmtM=m=>('M '+m.toFixed(1)).replace('.',',');
 
-let S={gt01:'PA', red:14, scope:'corr', minMag:4.0, off:new Set(), sel:null, dirty:false, committed:null};
+let S={gt01:'PA', red:20, scope:'corr', minMag:4.0, off:new Set(), sel:null, dirty:false, committed:null};
 
 // estaciones activas (respeta red 14/20 y apagadas). GT01 siempre presente, con su posición.
 function stationsFor(pos){
@@ -411,15 +415,23 @@ function draw(){
   for(const s of sts){ctx.beginPath();ctx.moveTo(ex,ey);ctx.lineTo(px(s.lon),py(s.lat));ctx.stroke();}
   ctx.globalAlpha=1;
 
-  // estaciones
+  // estaciones — instaladas: relleno sólido · programadas (por instalar): borde punteado · apagadas: gris hueco
   for(const s of stD){
     const x=px(s.lon),y=py(s.lat),r=s.gt01?8:6;
     ctx.beginPath(); ctx.moveTo(x,y-r); ctx.lineTo(x+r*.92,y+r*.72); ctx.lineTo(x-r*.92,y+r*.72); ctx.closePath();
     if(s.off){ctx.fillStyle='transparent'; ctx.fill(); ctx.lineWidth=1.3; ctx.strokeStyle=C.off; ctx.stroke();}
-    else{ctx.fillStyle=s.gt01?C.gr:C.sta; ctx.fill(); ctx.lineWidth=1.3; ctx.strokeStyle=s.gt01?C.gr:C.sta; ctx.stroke();}
+    else if(s.gt01){ctx.fillStyle=C.gr; ctx.fill(); ctx.lineWidth=1.3; ctx.strokeStyle=C.gr; ctx.stroke();}
+    else if(!s.inst){ctx.fillStyle='transparent'; ctx.fill(); ctx.lineWidth=1.5; ctx.setLineDash([3,2]); ctx.strokeStyle=C.sta; ctx.stroke(); ctx.setLineDash([]);}
+    else{ctx.fillStyle=C.sta; ctx.fill(); ctx.lineWidth=1.3; ctx.strokeStyle=C.sta; ctx.stroke();}
+  }
+  // etiquetas: GT01 y las programadas (las que completan la red)
+  ctx.font='500 10px '+css('--mono'); ctx.textAlign='center'; ctx.textBaseline='bottom';
+  for(const s of stD){
+    if(s.gt01 || s.inst || s.off) continue;
+    ctx.fillStyle=C.sta; ctx.fillText(s.id, px(s.lon), py(s.lat)-9);
   }
   const g1=stD.find(s=>s.gt01);
-  ctx.font='500 11px '+css('--mono'); ctx.textAlign='center'; ctx.textBaseline='bottom'; ctx.fillStyle=C.gr;
+  ctx.font='500 11px '+css('--mono'); ctx.fillStyle=C.gr;
   ctx.fillText('GT01 · '+g1.sitio, px(g1.lon), py(g1.lat)-11);
 
   // evento seleccionado
@@ -523,7 +535,7 @@ cv.addEventListener('mousemove',e=>{
   const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
   const st=nearestStation(mx,my);
   if(st){tip.style.opacity=1;tip.style.left=px(st.lon)+'px';tip.style.top=py(st.lat)+'px';
-    tip.textContent=st.id+(st.off?' · apagada ✕':' · activa');cv.style.cursor='pointer';}
+    tip.textContent=st.id+(st.off?' · apagada ✕':(st.inst?' · instalada':' · por instalar'));cv.style.cursor='pointer';}
   else{tip.style.opacity=0;cv.style.cursor='crosshair';}
 });
 cv.addEventListener('mouseleave',()=>{tip.style.opacity=0;});
