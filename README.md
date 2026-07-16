@@ -6,7 +6,7 @@ Emergencia sobre las réplicas del **Terremoto de La Guaira** (doblete **M 7,2 +
 
 🔗 **En vivo:** https://rommeljose.github.io/Gap-Red-de-Emergencia-Terremoto-de-la-Guaira/
 
-![Estado](https://img.shields.io/badge/red-16%2F20%20instaladas-0f8f84) ![Datos](https://img.shields.io/badge/réplicas-1208%20FUNVISIS-33474f) ![Autónoma](https://img.shields.io/badge/sin%20dependencias-página%20única-c37f14)
+![Estado](https://img.shields.io/badge/red-17%2F20%20instaladas-0f8f84) ![Datos](https://img.shields.io/badge/réplicas-1208%20FUNVISIS-33474f) ![Autónoma](https://img.shields.io/badge/sin%20dependencias-página%20única-c37f14)
 
 ---
 
@@ -50,18 +50,18 @@ tierra y la mayoría de las réplicas caen **mar adentro**.
 
 ## Resultado principal
 
-Con las **16 estaciones instaladas** (al 15-jul-2026) y sobre las 1 208 réplicas del catálogo:
+Con las **17 estaciones instaladas** (al 16-jul-2026) y sobre las 1 208 réplicas del catálogo:
 
-| Con las 16 instaladas | GT01 en Gran Roque | GT01 en Paracotos |
+| Con las 17 instaladas | GT01 en Gran Roque | GT01 en Paracotos |
 |---|---|---|
-| Gap mediano | 103,9° | 169,0° |
-| Réplicas fuera de la red (> 180°) | 265 (22 %) | 324 (27 %) |
-| Réplicas **bien rodeadas** (< 120°) | **874 (72 %)** | **86 (7 %)** |
-| Dirección media del hueco | Suroeste | Nornoroeste |
+| Gap mediano | 103,5° | 164,0° |
+| Réplicas fuera de la red (> 180°) | 109 (9 %) | 168 (14 %) |
+| Réplicas **bien rodeadas** (< 120°) | **898 (74 %)** | **110 (9 %)** |
+| Dirección media del hueco | Sursuroeste | Norte |
 
-Al completarse el flanco occidental (GT11 Boca de Aroa, GT17 Sanare), la reubicación de GT01 pesa
-poco en el conteo de «fuera de la red», pero **mucho en la calidad**: las réplicas bien rodeadas caen
-del **72 % al 7 %**, y el hueco residual apunta al **norte**. Gran Roque era el único punto de tierra
+Al completarse el flanco occidental (GT11 Boca de Aroa, GT17 Sanare, GT20 Aroa), la reubicación de
+GT01 pesa poco en el conteo de «fuera de la red», pero **mucho en la calidad**: las réplicas bien
+rodeadas caen del **74 % al 9 %**, y el hueco residual apunta al **norte**. Gran Roque era el único punto de tierra
 firme al norte de la ruptura; ninguna estación en tierra puede cerrar ese flanco marino — es el
 argumento cuantitativo para evaluar **sismómetros de fondo oceánico (OBS)**.
 
@@ -72,7 +72,7 @@ argumento cuantitativo para evaluar **sismómetros de fondo oceánico (OBS)**.
 ## Datos y método
 
 - **Estaciones:** 20 de banda ancha de la Red GFZ (Nanometrics Trillium Compact + registrador DiGOS
-  DATA-CUBE³), aportadas por el **Helmholtz-Zentrum Potsdam (GFZ)**. 16 instaladas al 15-jul-2026.
+  DATA-CUBE³), aportadas por el **Helmholtz-Zentrum Potsdam (GFZ)**. 17 instaladas al 16-jul-2026.
 - **Réplicas:** 1 208 eventos del catálogo **FUNVISIS** vía servicio FDSN
   ([catalogosismicovenezuela.sigeos.org](https://catalogosismicovenezuela.sigeos.org)), instantánea
   del 14-jul-2026.
