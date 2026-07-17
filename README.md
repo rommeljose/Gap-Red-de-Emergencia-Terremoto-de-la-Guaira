@@ -6,7 +6,7 @@ Emergencia sobre las réplicas del **Terremoto de La Guaira** (doblete **M 7,2 +
 
 🔗 **En vivo:** https://rommeljose.github.io/Gap-Red-de-Emergencia-Terremoto-de-la-Guaira/
 
-![Estado](https://img.shields.io/badge/red-18%2F20%20instaladas-0f8f84) ![Datos](https://img.shields.io/badge/réplicas-1208%20FUNVISIS-33474f) ![Autónoma](https://img.shields.io/badge/sin%20dependencias-página%20única-c37f14)
+![Estado](https://img.shields.io/badge/red-19%2F20%20instaladas-0f8f84) ![Datos](https://img.shields.io/badge/réplicas-1208%20FUNVISIS-33474f) ![Autónoma](https://img.shields.io/badge/sin%20dependencias-página%20única-c37f14)
 
 ---
 
@@ -50,18 +50,18 @@ tierra y la mayoría de las réplicas caen **mar adentro**.
 
 ## Resultado principal
 
-Con las **18 estaciones instaladas** (al 17-jul-2026) y sobre las 1 208 réplicas del catálogo:
+Con las **19 estaciones instaladas** (al 17-jul-2026) y sobre las 1 208 réplicas del catálogo:
 
-| Con las 18 instaladas | GT01 en Gran Roque | GT01 en Paracotos |
+| Con las 19 instaladas | GT01 en Gran Roque | GT01 en Paracotos |
 |---|---|---|
-| Gap mediano | 103,4° | 162,9° |
-| Réplicas fuera de la red (> 180°) | 89 (7 %) | 148 (12 %) |
-| Réplicas **bien rodeadas** (< 120°) | **942 (78 %)** | **154 (13 %)** |
+| Gap mediano | 102,6° | 162,8° |
+| Réplicas fuera de la red (> 180°) | 88 (7 %) | 147 (12 %) |
+| Réplicas **bien rodeadas** (< 120°) | **992 (82 %)** | **204 (17 %)** |
 | Dirección media del hueco | Sursuroeste | Norte |
 
-Al completarse el flanco occidental (GT11 Boca de Aroa, GT17 Sanare, GT18 San Felipe, GT20 Aroa), la reubicación de
+Al completarse el flanco occidental (GT11, GT17, GT18, GT19, GT20), la reubicación de
 GT01 pesa poco en el conteo de «fuera de la red», pero **mucho en la calidad**: las réplicas bien
-rodeadas caen del **78 % al 13 %**, y el hueco residual apunta al **norte**. Gran Roque era el único punto de tierra
+rodeadas caen del **82 % al 17 %**, y el hueco residual apunta al **norte**. Gran Roque era el único punto de tierra
 firme al norte de la ruptura; ninguna estación en tierra puede cerrar ese flanco marino — es el
 argumento cuantitativo para evaluar **sismómetros de fondo oceánico (OBS)**.
 
@@ -72,7 +72,7 @@ argumento cuantitativo para evaluar **sismómetros de fondo oceánico (OBS)**.
 ## Datos y método
 
 - **Estaciones:** 20 de banda ancha de la Red GFZ (Nanometrics Trillium Compact + registrador DiGOS
-  DATA-CUBE³), aportadas por el **Helmholtz-Zentrum Potsdam (GFZ)**. 18 instaladas al 17-jul-2026.
+  DATA-CUBE³), aportadas por el **Helmholtz-Zentrum Potsdam (GFZ)**. 19 instaladas al 17-jul-2026.
 - **Réplicas:** 1 208 eventos del catálogo **FUNVISIS** vía servicio FDSN
   ([catalogosismicovenezuela.sigeos.org](https://catalogosismicovenezuela.sigeos.org)), instantánea
   del 14-jul-2026.
