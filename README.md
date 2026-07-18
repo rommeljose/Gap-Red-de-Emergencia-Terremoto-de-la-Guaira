@@ -6,7 +6,7 @@ Emergencia sobre las réplicas del **Terremoto de La Guaira** (doblete **M 7,2 +
 
 🔗 **En vivo:** https://rommeljose.github.io/Gap-Red-de-Emergencia-Terremoto-de-la-Guaira/
 
-![Estado](https://img.shields.io/badge/red-19%2F20%20instaladas-0f8f84) ![Datos](https://img.shields.io/badge/réplicas-1208%20FUNVISIS-33474f) ![Autónoma](https://img.shields.io/badge/sin%20dependencias-página%20única-c37f14)
+![Estado](https://img.shields.io/badge/red-18%2F20%20instaladas-0f8f84) ![Datos](https://img.shields.io/badge/réplicas-1208%20FUNVISIS-33474f) ![Autónoma](https://img.shields.io/badge/sin%20dependencias-página%20única-c37f14)
 
 ---
 
@@ -30,8 +30,8 @@ del polígono de estaciones.
 
 ## Qué permite la consola
 
-- **Mover GT01** entre **Gran Roque** (Los Roques, el punto de diseño original) y **Paracotos**
-  (donde se instaló) y ver el efecto sobre la cobertura.
+- **Ubicar GT01** en **Gran Roque** (Los Roques, punto de reserva al norte) o en **Puerto Maya**
+  (su nueva asignación, sobre la costa central) y ver el efecto sobre la cobertura.
 - **Encender / apagar cualquier estación** con un clic sobre el mapa —para simular una caída de
   campo o un escenario hipotético— y pulsar **Re-analizar**.
 - **Filtrar por magnitud** con el deslizador (las réplicas se dibujan con **radio ∝ magnitud**).
@@ -41,7 +41,7 @@ del polígono de estaciones.
 - Alternar entre la **red completa (20)** y **solo las instaladas**. Las estaciones **por instalar**
   se dibujan con borde punteado y rótulo.
 
-El panel derecho compara **las dos posiciones de GT01** (Gran Roque vs. Paracotos) sobre todas las
+El panel derecho compara **las dos posiciones de GT01** (Gran Roque vs. Puerto Maya) sobre todas las
 réplicas del filtro actual.
 
 El mapa incluye la **silueta de la costa** venezolana y las **islas oceánicas** (Los Roques, Las
@@ -50,18 +50,18 @@ tierra y la mayoría de las réplicas caen **mar adentro**.
 
 ## Resultado principal
 
-Con las **19 estaciones instaladas** (al 17-jul-2026) y sobre las 1 208 réplicas del catálogo:
+Con las **18 estaciones instaladas** (al 17-jul-2026) y sobre las 1 208 réplicas del catálogo:
 
-| Con las 19 instaladas | GT01 en Gran Roque | GT01 en Paracotos |
+| Con las 18 instaladas | GT01 en Gran Roque | GT01 en Puerto Maya |
 |---|---|---|
-| Gap mediano | 102,6° | 162,8° |
+| Gap mediano | 102,6° | 162,9° |
 | Réplicas fuera de la red (> 180°) | 88 (7 %) | 147 (12 %) |
-| Réplicas **bien rodeadas** (< 120°) | **992 (82 %)** | **204 (17 %)** |
+| Réplicas **bien rodeadas** (< 120°) | **992 (82 %)** | **193 (16 %)** |
 | Dirección media del hueco | Sursuroeste | Norte |
 
 Al completarse el flanco occidental (GT11, GT17, GT18, GT19, GT20), la reubicación de
 GT01 pesa poco en el conteo de «fuera de la red», pero **mucho en la calidad**: las réplicas bien
-rodeadas caen del **82 % al 17 %**, y el hueco residual apunta al **norte**. Gran Roque era el único punto de tierra
+rodeadas caen del **82 % al 16 %**, y el hueco residual apunta al **norte**. Gran Roque es el único punto de tierra
 firme al norte de la ruptura; ninguna estación en tierra puede cerrar ese flanco marino — es el
 argumento cuantitativo para evaluar **sismómetros de fondo oceánico (OBS)**.
 
@@ -72,7 +72,7 @@ argumento cuantitativo para evaluar **sismómetros de fondo oceánico (OBS)**.
 ## Datos y método
 
 - **Estaciones:** 20 de banda ancha de la Red GFZ (Nanometrics Trillium Compact + registrador DiGOS
-  DATA-CUBE³), aportadas por el **Helmholtz-Zentrum Potsdam (GFZ)**. 19 instaladas al 17-jul-2026.
+  DATA-CUBE³), aportadas por el **Helmholtz-Zentrum Potsdam (GFZ)**. 18 instaladas al 17-jul-2026.
 - **Réplicas:** 1 208 eventos del catálogo **FUNVISIS** vía servicio FDSN
   ([catalogosismicovenezuela.sigeos.org](https://catalogosismicovenezuela.sigeos.org)), instantánea
   del 14-jul-2026.
